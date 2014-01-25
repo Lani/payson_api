@@ -25,7 +25,7 @@ module PaysonAPI
   ]
   INVOICE_STATUSES = %w[PENDING ORDERCREATED CANCELED SHIPPED DONE CREDITED]
   PAYMENT_ACTIONS = %w[CANCELORDER SHIPORDER CREDITORDER REFUND]
-  SHOW_RECEIPT_PAGE_OPTIONS =%w[true false] showReceiptPage
+  SHOW_RECEIPT_PAGE_OPTIONS =%w[true false] 
 
   def configure(&block)
     yield @config ||= Configuration.new
