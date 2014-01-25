@@ -64,7 +64,7 @@ private
   end
 
   def append_show_receipt_page(hash, show_receipt_page)
-    if !SHOW_RECEIPT_PAGE_OPTIONS.includes?(show_receipt_page)
+    if !SHOW_RECEIPT_PAGE_OPTIONS.include?(show_receipt_page)
       raise "Invalid shoReceiptPage option: #{show_receipt_page}"
     end
     hash['showReceiptPage'] = show_receipt_page
