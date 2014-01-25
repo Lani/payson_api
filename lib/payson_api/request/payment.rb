@@ -3,7 +3,7 @@ module Request
 class Payment
   attr_accessor :return_url, :cancel_url, :ipn_url, :memo, :sender, :receivers,
     :locale, :currency, :tracking_id, :invoice_fee, :order_items, :fundings,
-    :fees_payer, :guarantee_offered
+    :fees_payer, :guarantee_offered, :show_receipt_page
 
   def initialize(return_url, cancel_url, ipn_url, memo, sender, receivers)
     @return_url = return_url
@@ -33,6 +33,7 @@ class Payment
       hash['ipnNotificationUrl'] = @ipn_url if @ipn_url
       hash['invoiceFee'] = @invoice_fee if @invoice_fee
       hash['trackingId'] = @tracking_id if @tracking_id
+      append_show_receipt_page(hash, @show_receipt_page) if @show_receipt_page
     end
   end
 
@@ -60,6 +61,13 @@ private
       raise "Unknown fees payer: #{fees_payer}"
     end
     hash['feesPayer'] = fees_payer
+  end
+
+  def append_show_receipt_page(hash, show_receipt_page)
+    if !SHOW_RECEIPT_PAGE_OPTIONS.includes?(show_receipt_page)
+      raise "Invalid shoReceiptPage option: #{show_receipt_page}"
+    end
+    hash['showReceiptPage'] = show_receipt_page
   end
 end
 end
