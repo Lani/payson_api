@@ -5,7 +5,7 @@ A simple utility to handle requests against the Payson payment gateway API.
 
 == Supported versions
 
-* Ruby 1.8.7, 1.9.2, 1.9.3, 2.0.0
+* Ruby 1.9.3, 2.0.0, 2.1.0
 
 
 == Install
@@ -28,7 +28,7 @@ You need to configure the gem with your own Payson credentials through the <tt>P
     config.api_password = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
   end
 
-Please note that if <tt>config.api_user_id</tt> is set to 1, the client will go into test mode.
+Please note that if <tt>config.api_user_id</tt> is set to 4, the client will go into test mode. Valid test access credentials could be found in {documentation}[https://api.payson.se/#Testing/sandbox].
 
 === Initiating a payment
 
@@ -152,4 +152,4 @@ Feel free to message me on Github (stoffus).
 
 == Copyright
 
-Copyright (c) 2013 Christopher Svensson.
+Copyright (c) 2014 Christopher Svensson.
